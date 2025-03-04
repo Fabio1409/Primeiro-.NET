@@ -1,7 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+
+using PrimeiroDOTNET.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+var services = builder.Services;
+var configuration = builder.Configuration;
+var connectionString = configuration.GetConnectionString("NomeDoProjeto");
+
+services.AddDbContext<PrimeiroDOTNETContext>(options =>
+{
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+}
+);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 
