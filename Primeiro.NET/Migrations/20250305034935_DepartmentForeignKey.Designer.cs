@@ -12,8 +12,8 @@ using PrimeiroDOTNET.Data;
 namespace PrimeiroDOTNET.Migrations
 {
     [DbContext(typeof(PrimeiroDOTNETContext))]
-    [Migration("20250305005542_Rodrigo")]
-    partial class Rodrigo
+    [Migration("20250305034935_DepartmentForeignKey")]
+    partial class DepartmentForeignKey
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,11 +44,11 @@ namespace PrimeiroDOTNET.Migrations
 
             modelBuilder.Entity("PrimeiroDOTNET.Models.Seller", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("ID"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<double>("BaseSalary")
                         .HasColumnType("double");
@@ -67,7 +67,7 @@ namespace PrimeiroDOTNET.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("DepartamentId");
 
@@ -88,7 +88,7 @@ namespace PrimeiroDOTNET.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("SellerID")
+                    b.Property<int>("SellerId")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -96,7 +96,7 @@ namespace PrimeiroDOTNET.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("SellerID");
+                    b.HasIndex("SellerId");
 
                     b.ToTable("SalesRecord");
                 });
@@ -116,7 +116,7 @@ namespace PrimeiroDOTNET.Migrations
                 {
                     b.HasOne("PrimeiroDOTNET.Models.Seller", "Seller")
                         .WithMany("Sales")
-                        .HasForeignKey("SellerID")
+                        .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

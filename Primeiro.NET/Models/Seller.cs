@@ -8,6 +8,7 @@
         public DateTime BirthDate { get; set; }
         public double BaseSalary { get; set; }
         public Departament Departament { get; set; }
+        public int DepartamentId { get; set; }
         public ICollection<SellerRecord> Sales { get; set; } = new List<SellerRecord>();
 
         public Seller()
@@ -22,6 +23,7 @@
             BirthDate = birthDate;
             BaseSalary = baseSalary;
             Departament = departament;
+
         }
         public void AddSales(SellerRecord salesRecord)
         {
