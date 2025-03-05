@@ -7,15 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PrimeiroDOTNET.Migrations
 {
     /// <inheritdoc />
-    public partial class OtherEntities : Migration
+    public partial class Rodrigo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Rodriga",
-                table: "Departament");
-
             migrationBuilder.CreateTable(
                 name: "Seller",
                 columns: table => new
@@ -84,13 +80,6 @@ namespace PrimeiroDOTNET.Migrations
 
             migrationBuilder.DropTable(
                 name: "Seller");
-
-            migrationBuilder.AddColumn<string>(
-                name: "Rodriga",
-                table: "Departament",
-                type: "longtext",
-                nullable: false)
-                .Annotation("MySql:CharSet", "utf8mb4");
         }
     }
 }

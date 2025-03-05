@@ -12,8 +12,8 @@ using PrimeiroDOTNET.Data;
 namespace PrimeiroDOTNET.Migrations
 {
     [DbContext(typeof(PrimeiroDOTNETContext))]
-    [Migration("20250304220127_OtherEntities")]
-    partial class OtherEntities
+    [Migration("20250305005542_Rodrigo")]
+    partial class Rodrigo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
