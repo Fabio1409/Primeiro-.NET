@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
 using PrimeiroDOTNET.Data;
+using PrimeiroDOTNET.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +16,11 @@ services.AddDbContext<PrimeiroDOTNETContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
-services.AddScoped<SeedingService>();
 // Registra sistema da aplicação seeding
+services.AddScoped<SeedingService>();
+services.AddScoped<SellerService>();
+
+
 
 builder.Services.AddControllersWithViews();
 // Add services to the container.
