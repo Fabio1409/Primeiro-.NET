@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 
 using PrimeiroDOTNET.Data;
 using PrimeiroDOTNET.Services;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,11 +23,21 @@ services.AddScoped<SeedingService>();
 services.AddScoped<SellerService>();
 services.AddScoped<DepartamentService>();
 
+var enUS = new CultureInfo("en-US");
+var localizationOptions = new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new RequestCulture(enUS),
+    SupportedCultures = new List<CultureInfo> { enUS },
+    SupportedUICultures = new List<CultureInfo> { enUS }
+};
+
+
 
 
 builder.Services.AddControllersWithViews();
 // Add services to the container.
 var app = builder.Build();
+app.UseRequestLocalization(localizationOptions);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
