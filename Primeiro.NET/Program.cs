@@ -19,6 +19,7 @@ services.AddDbContext<PrimeiroDOTNETContext>(options =>
 // Registra sistema da aplicação seeding
 services.AddScoped<SeedingService>();
 services.AddScoped<SellerService>();
+services.AddScoped<DepartamentService>();
 
 
 
