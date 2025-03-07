@@ -1,4 +1,5 @@
-﻿namespace PrimeiroDOTNET.Models.ViewModels
+﻿
+namespace PrimeiroDOTNET.Models.ViewModels
 {
     public class SellerFormViewModel
     {

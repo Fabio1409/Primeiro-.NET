@@ -1,4 +1,5 @@
-﻿using PrimeiroDOTNET.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PrimeiroDOTNET.Models;
 namespace PrimeiroDOTNET.Services
 {
     public class DepartamentService
@@ -10,9 +11,9 @@ namespace PrimeiroDOTNET.Services
             _context = context;
         }
 
-        public List<Departament> FindAll()
+        public async Task<List<Departament>> FindAllAsync()
         {
-            return _context.Departament.OrderBy(x => x.Name).ToList();
+            return await _context.Departament.OrderBy(x => x.Name).ToListAsync();
         }
     }
 }
