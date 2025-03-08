@@ -22,6 +22,7 @@ services.AddDbContext<PrimeiroDOTNETContext>(options =>
 services.AddScoped<SeedingService>();
 services.AddScoped<SellerService>();
 services.AddScoped<DepartamentService>();
+services.AddScoped<SalesRecordService>();
 
 var enUS = new CultureInfo("en-US");
 var localizationOptions = new RequestLocalizationOptions
